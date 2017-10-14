@@ -1,0 +1,376 @@
+<blocks app="Snap! 4.0, http://snap.berkeley.edu" version="1">
+    <block-definition s="read distance @ %&apos;IPaddress&apos; : %&apos;Port&apos;" type="reporter" category="sensing">
+        <header></header>
+        <code></code>
+        <inputs>
+            <input type="%s">192.168.1.100</input>
+            <input type="%s">8001</input>
+        </inputs>
+        <script>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>http_address</l>
+                </list>
+            </block>
+            <block s="doSetVar">
+                <l>http_address</l>
+                <block s="reportJoinWords">
+                    <list>
+                        <block var="IPaddress"/>
+                        <l>:</l>
+                        <block var="Port"/>
+                        <l>/</l>
+                        <l>dist</l>
+                    </list>
+                </block>
+            </block>
+            <block s="doReport">
+                <block s="reportURL">
+                    <block var="http_address"/>
+                </block>
+            </block>
+        </script>
+    </block-definition>
+    <block-definition
+            s="move1motor %&apos;motor&apos; for %&apos;milliseconds&apos; milliseconds at %&apos;speed&apos; speed @ %&apos;IPaddress&apos; : %&apos;Port&apos;"
+            type="command" category="motion">
+        <header></header>
+        <code></code>
+        <inputs>
+            <input type="%txt">a</input>
+            <input type="%n">100</input>
+            <input type="%n">50</input>
+            <input type="%s">192.168.1.100</input>
+            <input type="%s">8001</input>
+        </inputs>
+        <script>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>http_address</l>
+                </list>
+            </block>
+            <block s="doSetVar">
+                <l>http_address</l>
+                <block s="reportJoinWords">
+                    <list>
+                        <block var="IPaddress"/>
+                        <l>:</l>
+                        <block var="Port"/>
+                        <l>/</l>
+                    </list>
+                </block>
+            </block>
+            <block s="doIf">
+                <block s="reportAnd">
+                    <block s="reportAnd">
+                        <block s="reportAnd">
+                            <block s="reportLessThan">
+                                <l>-101</l>
+                                <block var="speed"/>
+                            </block>
+                            <block s="reportLessThan">
+                                <block var="speed"/>
+                                <l>101</l>
+                            </block>
+                        </block>
+                        <block s="reportLessThan">
+                            <block var="milliseconds"/>
+                            <l>999</l>
+                        </block>
+                    </block>
+                    <block s="reportListContainsItem">
+                        <block s="reportNewList">
+                            <list>
+                                <l>a</l>
+                                <l>b</l>
+                                <l>c</l>
+                                <l>d</l>
+                            </list>
+                        </block>
+                        <block var="motor"/>
+                    </block>
+                </block>
+                <script>
+                    <block s="doIfElse">
+                        <block s="reportNot">
+                            <block s="reportEquals">
+                                <block s="reportMonadic">
+                                    <l>
+                                        <option>abs</option>
+                                    </l>
+                                    <block var="speed"/>
+                                </block>
+                                <block var="speed"/>
+                            </block>
+                        </block>
+                        <script>
+                            <block s="doRun">
+                                <block s="reifyReporter">
+                                    <autolambda>
+                                        <block s="reportURL">
+                                            <block s="reportJoinWords">
+                                                <list>
+                                                    <block var="http_address"/>
+                                                    <l>move1motor</l>
+                                                    <block var="motor"/>
+                                                    <l>x</l>
+                                                    <block var="milliseconds"/>
+                                                    <l>x</l>
+                                                    <block s="reportMonadic">
+                                                        <l>
+                                                            <option>abs</option>
+                                                        </l>
+                                                        <block var="speed"/>
+                                                    </block>
+                                                    <l>x</l>
+                                                    <l>-</l>
+                                                </list>
+                                            </block>
+                                        </block>
+                                    </autolambda>
+                                    <list></list>
+                                </block>
+                                <list></list>
+                            </block>
+                        </script>
+                        <script>
+                            <block s="doRun">
+                                <block s="reifyReporter">
+                                    <autolambda>
+                                        <block s="reportURL">
+                                            <block s="reportJoinWords">
+                                                <list>
+                                                    <block var="http_address"/>
+                                                    <l>move1motor</l>
+                                                    <block var="motor"/>
+                                                    <l>x</l>
+                                                    <block var="milliseconds"/>
+                                                    <l>x</l>
+                                                    <block s="reportMonadic">
+                                                        <l>
+                                                            <option>abs</option>
+                                                        </l>
+                                                        <block var="speed"/>
+                                                    </block>
+                                                    <l>x</l>
+                                                    <l>+</l>
+                                                </list>
+                                            </block>
+                                        </block>
+                                    </autolambda>
+                                    <list></list>
+                                </block>
+                                <list></list>
+                            </block>
+                        </script>
+                    </block>
+                </script>
+            </block>
+        </script>
+    </block-definition>
+    <block-definition
+            s="move2motors for %&apos;milliseconds&apos; milliseconds at ( %&apos;speed_a&apos; , %&apos;speed_b&apos; ) speed @ %&apos;IPaddress&apos; : %&apos;Port&apos;"
+            type="command" category="motion">
+        <header></header>
+        <code></code>
+        <inputs>
+            <input type="%n">100</input>
+            <input type="%n">50</input>
+            <input type="%n">50</input>
+            <input type="%s">192.168.1.100</input>
+            <input type="%s">8001</input>
+        </inputs>
+        <script>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>direction_a</l>
+                </list>
+            </block>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>direction_b</l>
+                </list>
+            </block>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>http_address</l>
+                </list>
+            </block>
+            <block s="doSetVar">
+                <l>http_address</l>
+                <block s="reportJoinWords">
+                    <list>
+                        <block var="IPaddress"/>
+                        <l>:</l>
+                        <block var="Port"/>
+                        <l>/</l>
+                    </list>
+                </block>
+            </block>
+            <block s="doIf">
+                <block s="reportAnd">
+                    <block s="reportAnd">
+                        <block s="reportLessThan">
+                            <l>-101</l>
+                            <block var="speed_a"/>
+                        </block>
+                        <block s="reportLessThan">
+                            <l></l>
+                            <l>101</l>
+                        </block>
+                    </block>
+                    <block s="reportLessThan">
+                        <block var="milliseconds"/>
+                        <l>1001</l>
+                    </block>
+                </block>
+                <script>
+                    <block s="doIfElse">
+                        <block s="reportNot">
+                            <block s="reportEquals">
+                                <block s="reportMonadic">
+                                    <l>
+                                        <option>abs</option>
+                                    </l>
+                                    <block var="speed_a"/>
+                                </block>
+                                <block var="speed_a"/>
+                            </block>
+                        </block>
+                        <script>
+                            <block s="doSetVar">
+                                <l>direction_a</l>
+                                <l>-</l>
+                            </block>
+                        </script>
+                        <script>
+                            <block s="doSetVar">
+                                <l>direction_a</l>
+                                <l>+</l>
+                            </block>
+                        </script>
+                    </block>
+                    <block s="doIfElse">
+                        <block s="reportNot">
+                            <block s="reportEquals">
+                                <block s="reportMonadic">
+                                    <l>
+                                        <option>abs</option>
+                                    </l>
+                                    <block var="speed_b"/>
+                                </block>
+                                <block var="speed_b"/>
+                            </block>
+                        </block>
+                        <script>
+                            <block s="doSetVar">
+                                <l>direction_b</l>
+                                <l>-</l>
+                            </block>
+                        </script>
+                        <script>
+                            <block s="doSetVar">
+                                <l>direction_b</l>
+                                <l>+</l>
+                            </block>
+                        </script>
+                    </block>
+                    <block s="doRun">
+                        <block s="reportURL">
+                            <block s="reportJoinWords">
+                                <list>
+                                    <block var="http_address"/>
+                                    <l>move2motors</l>
+                                    <block var="milliseconds"/>
+                                    <l>x</l>
+                                    <block s="reportMonadic">
+                                        <l>
+                                            <option>abs</option>
+                                        </l>
+                                        <block var="speed_a"/>
+                                    </block>
+                                    <l>x</l>
+                                    <block var="direction_a"/>
+                                    <l>x</l>
+                                    <block s="reportMonadic">
+                                        <l>
+                                            <option>abs</option>
+                                        </l>
+                                        <block var="speed_b"/>
+                                    </block>
+                                    <l>x</l>
+                                    <block var="direction_b"/>
+                                </list>
+                            </block>
+                        </block>
+                        <list></list>
+                    </block>
+                </script>
+            </block>
+        </script>
+    </block-definition>
+    <block-definition s="read color @ %&apos;IPaddress&apos; : %&apos;Port&apos;" type="reporter" category="sensing">
+        <header></header>
+        <code></code>
+        <inputs>
+            <input type="%s">192.168.1.100</input>
+            <input type="%s">8001</input>
+        </inputs>
+        <script>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>http_address</l>
+                </list>
+            </block>
+            <block s="doSetVar">
+                <l>http_address</l>
+                <block s="reportJoinWords">
+                    <list>
+                        <block var="IPaddress"/>
+                        <l>:</l>
+                        <block var="Port"/>
+                        <l>/</l>
+                        <l>color</l>
+                    </list>
+                </block>
+            </block>
+            <block s="doReport">
+                <block s="reportURL">
+                    <block var="http_address"/>
+                </block>
+            </block>
+        </script>
+    </block-definition>
+    <block-definition s="read tilt @ %&apos;IPaddress&apos; : %&apos;Port&apos;" type="reporter" category="sensing">
+        <header></header>
+        <code></code>
+        <inputs>
+            <input type="%s">192.168.1.100</input>
+            <input type="%s">8001</input>
+        </inputs>
+        <script>
+            <block s="doDeclareVariables">
+                <list>
+                    <l>http_address</l>
+                </list>
+            </block>
+            <block s="doSetVar">
+                <l>http_address</l>
+                <block s="reportJoinWords">
+                    <list>
+                        <block var="IPaddress"/>
+                        <l>:</l>
+                        <block var="Port"/>
+                        <l>/</l>
+                        <l>tilt</l>
+                    </list>
+                </block>
+            </block>
+            <block s="doReport">
+                <block s="reportURL">
+                    <block var="http_address"/>
+                </block>
+            </block>
+        </script>
+    </block-definition>
+</blocks>
