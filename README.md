@@ -11,7 +11,7 @@ The idea is to use a Raspberry Pi with BLE (like the Raspberry Pi 3 or the Raspb
 model with a USB BT 4.x BLE dongle will work) as a gateway between a browser (on Windows, OSX, Linux
 Android, iOS...) and a LEGO BOOST Move Hub.
 
-Altough it uses my own python library, it can be easily adapted for any other python library.
+Altough it uses my own python library, it can be easily adapted for any other python library, like [pylgbst](https://github.com/undera/pylgbst)
 
 For now, this extension only controls the motors by time and only read the internal tilt sensor
 and the Color/Dist sensor, will add the rest of the commands later.
