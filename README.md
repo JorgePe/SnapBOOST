@@ -39,7 +39,7 @@ Only 3 files are realy needed, they are inside 'pyb00st-master/pyb00st/':
 
 - movehub.my
 - constants.py
-- \_\_init__.py
+- \_\_init\_\_.py
 
 Put those 3 files in the 'pyb00st' subdirectory of your working directory. 
 
@@ -47,7 +47,7 @@ Put those 3 files in the 'pyb00st' subdirectory of your working directory.
 ## Usage:
 
 The extension assumes a Color/Distance sensor connected to port C, you can change to port D
-by change the variable 'colordist_port':
+by changing the variable 'colordist_port':
 
 `colordist_port = PORT_C`
 
