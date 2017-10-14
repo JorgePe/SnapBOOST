@@ -73,3 +73,13 @@ On your browser, start the [Snap!](http://snap.berkeley.edu/snapsource/snap.html
 You will now have blocks for motors (under 'Motion' category) and sensors (under 'Sensing' category).
 
 You now need to specify the IP Address of your Raspberry Pi to use it.
+
+
+# Example
+
+This example makes the two internal Interactive Motors turn for 0.25 seconds at full speed whenever the
+distance sensor detects something at less than '6' whatever-units-LEGO-uses.
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/example01.png)
+
+On my Vernie, that makes it runaway for a bit.
