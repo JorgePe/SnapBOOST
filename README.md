@@ -39,7 +39,7 @@ Only 3 files are realy needed, they are inside 'pyb00st-master/pyb00st/':
 
 - movehub.my
 - constants.py
-- __init__.pt
+- \_\_init__.py
 
 Put those 3 files in the 'pyb00st' subdirectory of your working directory. 
 
