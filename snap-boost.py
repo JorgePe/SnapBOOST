@@ -34,17 +34,17 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         if 'move1motor' in path:
             regex = re.compile("\/move1motor([ab])x([0-9]+)x([0-9]+)x([+-])")
             m = regex.match(path)
-            print('Regex: ', m.group(1), m.group(2), m.group(3), m.group(4))
+#            print('Regex: ', m.group(1), m.group(2), m.group(3), m.group(4))
             if m.group(4) == '-':
                 dutycycle = -1 * int(m.group(3))
             elif m.group(4) == "+":
                 dutycycle = int(m.group(3))
             milliseconds = int(m.group(2))
             motor = m.group(1)
-            print('Motor: ',motor)
-            print('Ms:    ',milliseconds)
-            print('DC:    ',dutycycle)
-            print('Ms/1000:',milliseconds/1000)
+#            print('Motor: ',motor)
+#            print('Ms:    ',milliseconds)
+#            print('DC:    ',dutycycle)
+#            print('Ms/1000:',milliseconds/1000)
             if motor == "a":
                 mymovehub.run_motor_for_time(MOTOR_A, milliseconds, dutycycle)
                 sleep(milliseconds/1000)
@@ -58,7 +58,7 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         elif 'move2motors' in path:
             regex = re.compile("\/move2motors(([0-9]+)x([0-9]+)x([+-])x([0-9]+)x([+-]))")
             m = regex.match(path)
-            print('Regex: ', m.group(1), m.group(2), m.group(3), m.group(4), m.group(5), m.group(6))
+#            print('Regex: ', m.group(1), m.group(2), m.group(3), m.group(4), m.group(5), m.group(6))
             milliseconds = int(m.group(2))
             if m.group(4) == '-':
                 dutycycle1 = -1 * int(m.group(3))
@@ -69,10 +69,10 @@ class CORSHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
             elif m.group(6) == '+':
                 dutycycle2 = int(m.group(5))
 
-            print('Ms:    ',milliseconds)
-            print('DC1:    ', dutycycle1)
-            print('DC2:    ', dutycycle2)
-            print('Ms/1000:',milliseconds/1000)
+#            print('Ms:    ',milliseconds)
+#            print('DC1:    ', dutycycle1)
+#            print('DC2:    ', dutycycle2)
+#            print('Ms/1000:',milliseconds/1000)
 
             mymovehub.run_motors_for_time(MOTOR_AB, milliseconds, dutycycle1, dutycycle2)
             sleep(milliseconds/1000)
@@ -154,7 +154,7 @@ if __name__ == "__main__":
     print('Serving at port', PORT)
     print('Go ahead and launch Snap!')
     print('<a>http://snap.berkeley.edu/snapsource/snap.html</a>')
-    print('Then import SnapBOOST.xml containing block definitions for motor and sensors.')
+    print('Then import the 'snap-boost-blocks-v#.xml' containing block definitions for motor and sensors.')
 
     mymovehub = MoveHub(MY_MOVEHUB_ADD, 'BlueZ', MY_BTCTRLR_HCI)
 
