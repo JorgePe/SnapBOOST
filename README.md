@@ -67,7 +67,7 @@ Then import the 'snap-boost-blocks-v#.xml' containing block definitions for moto
 System:  linux
 ```
 
-On your browser, start [Snap!] (http://snap.berkeley.edu/snapsource/snap.html) and use the menu option
+On your browser, start the [Snap!](http://snap.berkeley.edu/snapsource/snap.html) runtime and use the menu option
 'Import...' and specify the XML file you saved before.
 
 You will now have blocks for motors (under 'Motion' category) and sensors (under 'Sensing' category).
