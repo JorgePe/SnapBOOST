@@ -1,25 +1,40 @@
 # SnapBOOST
-Snap! extension for LEGO BOOST
+This is a BOOST extension for [Snap!](http://snap.berkeley.edu/)
 
-This Snap! extension allows us to use Snap! with the LEGO BOOST.
+It is based on Connor Hudson (AKA technoboy10) [snap-server](https://github.com/technoboy10/snap-server).
+
+I just converted it to python3 and added the BOOST methods from own library, [pyb00st](https://github.com/JorgePe/pyb00st) 
+Ian Daniher (AKA itdaniher) [WeDoMore](https://github.com/itdaniher/WeDoMore) library.
+
+It still needs some cleaning and improvements but it already works on my Ubuntu laptop and my Raspbery Pi Zero W.
 
 The idea is to use a Raspberry Pi with BLE (like the Raspberry Pi 3 or the Raspberry Pi Zero W, but any
 model with a USB BT 4.x BLE dongle will work) as a gateway between a browser (on Windows, OSX, Linux
 Android, iOS...) and a LEGO BOOST Move Hub.
 
-It uses my own python library, pyb00st, but can be easily adapted for any other python library.
+Altough it uses my own python library, it can be easily adapted for any other python library.
 
 For now, this extension only controls the motors by time and only read the internal tilt sensor
 and the Color/Dist sensor, will add the rest of the commands later.
 
+
+# Requirements
+
+- python 3.x
+- pyb00st
+
+
 ## Installation:
 
-Create a working directory on the Raspberry Pi, like 'snap-boost'
-Dowload the 2 files on this repository and put them on your working directory.
-Give execution permission to the python script (i.e. 'snap-boost.py') and copy the xml file
-to the computer/tablet/phone from where you will use a browser to run Snap!
+Create a working directory on the Raspberry Pi, like 'snap-boost'.
 
-Creat a subdirectory named 'pyb00st'.
+Save the Snap! extension script ('snap-boost.py') inside this directory and give it execution permissions.
+
+Save the XML with the block definitions ('snap-boost-blocks-v#.xml') to the computer/tablet/phone
+from where you will use a browser to run Snap!
+
+Create a subdirectory named 'pyb00st'.
+
 Download my [pyb00st library](https://github.com/JorgePe/pyb00st/archive/master.zip)
 Only 3 files are realy needed, they are inside 'pyb00st-master/pyb00st/':
 
@@ -28,6 +43,7 @@ Only 3 files are realy needed, they are inside 'pyb00st-master/pyb00st/':
 - __init__.pt
 
 Put those 3 files in the 'pyb00st' subdirectory of your working directory. 
+
 
 ## Usage:
 
@@ -52,7 +68,9 @@ Then import the 'snap-boost-blocks-v#.xml' containing block definitions for moto
 System:  linux
 ```
 
-On your browser, start [Snap!] (http://snap.berkeley.edu/snapsource/snap.html) and then import
-the xml file you saved before.
+On your browser, start [Snap!] (http://snap.berkeley.edu/snapsource/snap.html) and use the menu option
+'Import...' and specify the XML file you saved before.
 
 You will now have blocks for motors (under 'Motion' category) and sensors (under 'Sensing' category).
+
+You now need to specify the IP Address of your Raspberry Pi to use it.
