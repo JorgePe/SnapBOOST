@@ -72,7 +72,22 @@ On your browser, start the [Snap!](http://snap.berkeley.edu/snapsource/snap.html
 
 You will now have blocks for motors (under 'Motion' category) and sensors (under 'Sensing' category).
 
-You now need to specify the IP Address of your Raspberry Pi to use it.
+
+# Available blocks
+
+The XML file includes definitions of 2 Motion blocks and 3 Sensing blocks:
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/move1motor.png)
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/move2motors.png)
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/read_color.png)
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/read_distance.png)
+
+![](https://github.com/JorgePe/SnapBOOST/blob/master/images/read_tilt.png)
+
+You need to specify the IP Address of your Raspberry Pi to use it.
 
 
 # Example
