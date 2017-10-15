@@ -87,10 +87,24 @@ The XML file includes definitions of 2 Motion blocks and 3 Sensing blocks:
 
 ![](https://github.com/JorgePe/SnapBOOST/blob/master/images/read_tilt.png)
 
-You need to specify the IP Address of your Raspberry Pi to use it.
+For each block you need to specify the IP Address of your Raspberry Pi to use it (you could define a
+variable and use it with every block). If you change the port (8001 by default) on the python code you
+should also specify it.
+
+`move1motor` requires a motor (`a`, `b`, `c` or `d`), a `time` value (between 0 and 999 milliseconds)
+and a `speed` value (between -100% and 100%)
+
+`move2motors` is simillar but doesn't require a motor (as it works only with A+B motors) and requires
+two `speed` values (one for motor A and the other for motor B)
+
+`read color` returns one of these colors: 'BLACK', 'BLUE', 'GREEN', 'YELLOW', 'RED', 'WHITE'.
+
+`read distance` returns a number between 0 and 10.
+
+`read tilt` returns of these values: 'TILT_HORIZ', 'TILT_UP', 'TILT_DOWN', 'TILT_RIGHT', 'TILT_LEFT', 'TILT_INVERT'.
 
 
-# Example
+# First Example
 
 This example makes the two internal Interactive Motors turn for 0.25 seconds at full speed whenever the
 distance sensor detects something at less than '6' whatever-units-LEGO-uses.
@@ -98,3 +112,7 @@ distance sensor detects something at less than '6' whatever-units-LEGO-uses.
 ![](https://github.com/JorgePe/SnapBOOST/blob/master/images/example01.png)
 
 On my Vernie, that makes it runaway for a bit.
+
+
+# Second Example
+
