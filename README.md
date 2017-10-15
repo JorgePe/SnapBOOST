@@ -119,3 +119,5 @@ On my Vernie, that makes it runaway for a bit.
 When this example is used with Vernie it explores the world, moving forward until it founds an obstacle, then it turns right and keeps doing that, designing a path on the screen:
 
 ![](https://github.com/JorgePe/SnapBOOST/blob/master/images/example02.png)
+
+Here a video showing Vernie controlled with this code: https://youtu.be/9VF77k3UVa4
